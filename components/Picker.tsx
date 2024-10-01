@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Picker.module.css';
+import HistoryModal from '../components/HistoryModal';
 
 export default function Picker() {
   const [namesInput, setNamesInput] = useState('');
@@ -86,25 +87,7 @@ export default function Picker() {
         </div>
       )}
 
-      {isModalOpen && (
-        <div className={styles.modalOverlay} onClick={toggleModal}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <h3>Selection History</h3>
-            {history.length > 0 ? (
-              <ul>
-                {history.map((entry, index) => (
-                  <li key={index}>{entry}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>No history available.</p>
-            )}
-            <button onClick={toggleModal} className={styles.closeButton}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <HistoryModal isOpen={isModalOpen} history={history} toggleModal={toggleModal} />
     </div>
   );
 }
