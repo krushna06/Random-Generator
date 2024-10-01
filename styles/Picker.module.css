@@ -3,23 +3,35 @@
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-}
+  }
   
-.heading {
+  .heading {
     font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
-}
+  }
   
-.inputWrapper {
+  .historyButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #0070f3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .inputWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-}
+  }
   
-.textarea,
-.input {
+  .textarea,
+  .input {
     width: 80%;
     padding: 10px;
     background-color: #f9f9f9;
@@ -27,29 +39,29 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
-}
+  }
   
-.textarea {
+  .textarea {
     resize: none;
-}
+  }
   
-.numberInputWrapper {
+  .numberInputWrapper {
     display: flex;
     align-items: center;
     width: 80%;
-}
+  }
   
-.input {
+  .input {
     flex: 1;
-}
+  }
   
-.label {
+  .label {
     margin-left: 10px;
     font-size: 16px;
     color: #333;
-}
+  }
   
-.button {
+  .button {
     padding: 10px 20px;
     background-color: #0070f3;
     color: white;
@@ -58,18 +70,64 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+  }
   
-.button:hover {
+  .button:hover {
     background-color: #005bb5;
-}
+  }
   
-.selectedNames {
+  .selectedNames {
     margin-top: 20px;
     font-size: 1.2rem;
     color: #555;
-}
+  }
   
-.selectedNames h3 {
+  .selectedNames h3 {
     margin-bottom: 10px;
-}
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContent {
+    background: rgb(51, 51, 51);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+  }
+  
+  .modalContent h3 {
+    margin-bottom: 10px;
+  }
+  
+  .modalContent ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .modalContent li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .closeButton {
+    background-color: #ff5f5f;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
