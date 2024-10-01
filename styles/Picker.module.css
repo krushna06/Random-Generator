@@ -63,7 +63,7 @@
   
   .button {
     padding: 10px 20px;
-    background-color: #0070f3;
+    background-color: #6c7986;
     color: white;
     border: none;
     border-radius: 8px;
@@ -73,7 +73,7 @@
   }
   
   .button:hover {
-    background-color: #005bb5;
+    background-color: #5f656b;
   }
   
   .selectedNames {
