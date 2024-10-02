@@ -57,13 +57,15 @@ export default function Picker() {
     <div className={styles.container}>
       <h1 className={styles.heading}>Random Name Picker</h1>
 
-      <button className={styles.historyButton} onClick={toggleHistoryModal}>
-        Show History
-      </button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.historyButton} onClick={toggleHistoryModal}>
+          Show History
+        </button>
 
-      <button className={styles.importButton} onClick={toggleImportModal}>
-        Import Names
-      </button>
+        <button className={styles.importButton} onClick={toggleImportModal}>
+          Import Names
+        </button>
+      </div>
 
       <div className={styles.inputWrapper}>
         <textarea
@@ -85,7 +87,6 @@ export default function Picker() {
           />
         </div>
       </div>
-      <br></br>
 
       <button
         onClick={pickRandomNames}
@@ -105,4 +106,5 @@ export default function Picker() {
       <ImportModal isOpen={isImportModalOpen} onImport={handleImport} toggleModal={toggleImportModal} />
     </div>
   );
+
 }
