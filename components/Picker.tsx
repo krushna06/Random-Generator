@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Picker.module.css';
 import HistoryModal from '../components/HistoryModal';
+import ImportModal from '../components/ImportModal';
 
 export default function Picker() {
   const [namesInput, setNamesInput] = useState('');
   const [numberToPick, setNumberToPick] = useState(1);
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
   const [history, setHistory] = useState<string[]>([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
 
   useEffect(() => {
     const storedHistory = localStorage.getItem('namesHistory');
@@ -39,16 +41,28 @@ export default function Picker() {
     localStorage.setItem('namesHistory', JSON.stringify(updatedHistory));
   };
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+  const toggleHistoryModal = () => {
+    setIsHistoryModalOpen(!isHistoryModalOpen);
+  };
+
+  const toggleImportModal = () => {
+    setIsImportModalOpen(!isImportModalOpen);
+  };
+
+  const handleImport = (importedNames: string) => {
+    setNamesInput(prevNames => `${prevNames}${prevNames ? ', ' : ''}${importedNames}`);
   };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Random Name Picker</h1>
 
-      <button className={styles.historyButton} onClick={toggleModal}>
+      <button className={styles.historyButton} onClick={toggleHistoryModal}>
         Show History
+      </button>
+
+      <button className={styles.importButton} onClick={toggleImportModal}>
+        Import Names
       </button>
 
       <div className={styles.inputWrapper}>
@@ -87,7 +101,8 @@ export default function Picker() {
         </div>
       )}
 
-      <HistoryModal isOpen={isModalOpen} history={history} toggleModal={toggleModal} />
+      <HistoryModal isOpen={isHistoryModalOpen} history={history} toggleModal={toggleHistoryModal} />
+      <ImportModal isOpen={isImportModalOpen} onImport={handleImport} toggleModal={toggleImportModal} />
     </div>
   );
 }
